@@ -39,4 +39,5 @@ use command : git commit
 before push make sure there is token created
   if token not exist, go to https://github.com/settings/personal-access-token
 git push
-enter email & PAT (personal access token)
+  enter email & PAT (personal access token)
+Check the github account, new file should be show in github
