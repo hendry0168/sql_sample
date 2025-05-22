@@ -1,43 +1,100 @@
-This is test README file
+# 💡 GitHub Workflow Guide
 
-To clone:
-open cmd
-select the folder for repository
-  if folder exist, use command to go inside the folder : CD 
-    eg. CD "my new folder"
-  if folder not exist, use command : mkdir 
-    eg. mkdir "my new folder"
-use command : git clone
-  eg. git clone https://github.com/hendry0168/sql_sample
-enter username & pasword (tokens)
-  if token not exist, go to https://github.com/settings/personal-access-tokens
-  in repository permision, change access to read and write this selected item beow:
-    action
-    administration
-    commit statuses
-    contents
-    deployments
-    pull requests
-    repository security advisories
-After clone, we can check the folder using command : dir
-  eg. dir "my new folder"
+This guide explains how to clone a repository, add or update files (including `.bak` and solution files), and push your changes to GitHub.
+
+---
+
+## 📥 Cloning a Repository from GitHub
+
+1. **Open Command Prompt (CMD).**
+
+2. **Navigate to or create your target folder:**
+   - If the folder exists:
+     ```
+     cd "my folder"
+     ```
+   - If the folder doesn't exist:
+     ```
+     mkdir "my folder"
+     cd "my folder"
+     ```
+
+3. **Clone the repository:**
+   ```
+   git clone https://github.com/hendry0168/sql_sample
+   ```
+4. When prompted:
+
+   Enter your GitHub email.
+
+   Paste your Personal Access Token (PAT) instead of a password.
+
+   🔑 If you don’t have a PAT, create one at: https://github.com/settings/personal-access-tokens
+   Make sure to grant it repo access (read/write).
+
+5. Verify the folder was cloned:
+
+   ```
+    dir
+   ```
+
+
+📤 Adding & Committing New Files to GitHub
+    Use Windows PowerShell for best compatibility.
+1. Open PowerShell and navigate to the project folder:
+
+   ```
+    cd "my folder"
+   ```
+2. Check the current Git status:
+
+   ```
+    git status
+   ```
+   
+3. To stage a specific new or modified file (e.g. .sql, .bak, .sln):
+   ```
+    git add filename.ext
+   ```
+Example:
+   ```
+    git add DB_HR_backup.bak
+    git add MyProject.sln
+   ```
+
+4. To stage an entire folder:
+
+   ```
+    git add folder-name/
+   ```
+
+5. Confirm the files are staged:
+
+   ```
+    git status
+   ```
+
+6. Commit the changes with a message:
+
+   ```
+    git commit -m "Updated database backup and solution files"
+   ```
+
+7. Push the changes to GitHub:
+
+   ```
+    git push
+   ```
+   You may be prompted to log in with your email and PAT.
+
+8. Check your GitHub repository online to confirm the files were uploaded.
 
 
 
-To commit & push the new file:
 
-open windows powershell (not cmd)
-check the folder if file is exist using command : dir
-  eg. dir "my new folder"
-use command : git status
-  to check any changed/un-commit file
-  "untracked files" for file that created in the folder, but not part of repository
-use command to add specific file : git add test.sql
-  use command : git status, the file status will be : "to be commited"
-use command : git commit
-  before please enter, add message using command : git commit -m "added as testing"
-before push make sure there is token created
-  if token not exist, go to https://github.com/settings/personal-access-token
-git push
-  enter email & PAT (personal access token)
-Check the github account, new file should be show in github
+📌 Notes
+  - Make sure large files (like .bak) do not exceed GitHub's file size limit (100MB). For larger files, consider using Git LFS.
+
+  - Always commit and push regularly to keep your repository updated.
+
+  - Use .gitignore to exclude unnecessary files or folders (like bin, obj, or packages in Visual Studio).
